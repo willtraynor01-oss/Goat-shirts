@@ -48,3 +48,39 @@ if (addToCartButton) {
 
     });
 }
+// =========================
+// Display Cart
+// =========================
+
+const cartItems = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
+
+if (cartItems && cartTotal) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.quantity;
+
+        cartItems.innerHTML += `
+            <div class="cart-item">
+                <div class="cart-info">
+                    <h3>${item.name}</h3>
+                    <p>$${item.price.toFixed(2)}</p>
+                    <p>Quantity: ${item.quantity}</p>
+                    <button onclick="removeItem(${index})">
+                        Remove
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+
+    cartTotal.textContent = "$" + total.toFixed(2);
+
+}
