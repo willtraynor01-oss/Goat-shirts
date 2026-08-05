@@ -119,3 +119,22 @@ function removeItem(index) {
     location.reload();
 
 }
+// =========================
+// Cart Counter
+// =========================
+
+const cartLink = document.getElementById("cartLink");
+
+if (cartLink) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let count = 0;
+
+    cart.forEach(item => {
+        count += item.quantity;
+    });
+
+    cartLink.textContent = `Cart (${count})`;
+
+}
