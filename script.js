@@ -144,3 +144,4 @@ if (cartLink) {
     cartLink.textContent = `Cart (${count})`;
 
 }
+localStorage.removeItem("cart");
