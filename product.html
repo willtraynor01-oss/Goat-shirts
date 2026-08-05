@@ -33,21 +33,34 @@
 
         <div class="product-grid">
 
-            <div>
+<div>
 
-                <div class="shirt-image" style="height:450px;">
-                    Front View
-                </div>
+    <div class="product-gallery">
 
-                <div style="display:flex;gap:12px;margin-top:15px;justify-content:center;">
+        <img
+            id="mainImage"
+            src="images/sample-shirt-front.png"
+            alt="GOAT Shirt">
 
-                    <button class="shop-btn">Front</button>
+        <div class="thumbnail-row">
 
-                    <button class="shop-btn">Back</button>
+            <img
+                class="thumb active"
+                src="images/sample-shirt-front.png"
+                onclick="changeImage(this)"
+                alt="Front">
 
-                </div>
+            <img
+                class="thumb"
+                src="images/sample-shirt-back.png"
+                onclick="changeImage(this)"
+                alt="Back">
 
-            </div>
+        </div>
+
+    </div>
+
+</div>
 
             <div>
 
