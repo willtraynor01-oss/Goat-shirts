@@ -72,10 +72,19 @@ if (cartItems && cartTotal) {
                 <div class="cart-info">
                     <h3>${item.name}</h3>
                     <p>$${item.price.toFixed(2)}</p>
-                    <p>Quantity: ${item.quantity}</p>
-                    <button onclick="removeItem(${index})">
-                        Remove
-                    </button>
+              <div class="cart-controls">
+
+    <button onclick="changeQuantity(${index}, -1)">−</button>
+
+    <span>${item.quantity}</span>
+
+    <button onclick="changeQuantity(${index}, 1)">+</button>
+
+</div>
+
+<button onclick="removeItem(${index})">
+    Remove
+</button>   
                 </div>
             </div>
         `;
