@@ -104,3 +104,18 @@ function removeItem(index) {
     location.reload();
 
 }
+ function changeQuantity(index, amount) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart[index].quantity += amount;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    location.reload();
+
+}
