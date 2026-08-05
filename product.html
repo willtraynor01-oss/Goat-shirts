@@ -124,6 +124,18 @@
     </div>
 
 </footer>
+<script>
+function changeImage(img) {
 
+    document.getElementById("mainImage").src = img.src;
+
+    document.querySelectorAll(".thumb").forEach(function(t) {
+        t.classList.remove("active");
+    });
+
+    img.classList.add("active");
+
+}
+</script>
 </body>
 </html>
