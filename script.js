@@ -16,3 +16,27 @@ menuButton.addEventListener("click", () => {
         navMenu.style.gap = "20px";
     }
 });
+// Add to Cart
+const addToCartButton = document.getElementById("addToCart");
+
+if (addToCartButton) {
+
+    addToCartButton.addEventListener("click", () => {
+
+        const product = {
+            name: "Sample Shirt",
+            price: 24.99,
+            quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push(product);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Added to cart!");
+
+    });
+
+}
