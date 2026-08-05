@@ -296,3 +296,34 @@ body{
         font-size:1.5rem;
     }
 }
+
+.product-gallery{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+#mainImage{
+    width:100%;
+    max-width:500px;
+    border-radius:12px;
+}
+
+.thumbnail-row{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+}
+
+.thumb{
+    width:80px;
+    cursor:pointer;
+    border:2px solid transparent;
+    border-radius:8px;
+    transition:.2s;
+}
+
+.thumb.active{
+    border-color:#d4af37;
+}
