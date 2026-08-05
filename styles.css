@@ -393,3 +393,49 @@ body{
 #checkout-btn:hover{
     transform:translateY(-2px);
 }
+/* Cart Controls */
+
+.cart-controls{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:15px 0;
+}
+
+.cart-controls button{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:8px;
+    background:#d4af37;
+    color:#000;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.cart-controls button:hover{
+    transform:scale(1.08);
+}
+
+.cart-controls span{
+    min-width:20px;
+    text-align:center;
+    font-weight:700;
+}
+
+.cart-item button{
+    background:#111;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.cart-item button:hover{
+    background:#d4af37;
+    color:#000;
+}
