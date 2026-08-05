@@ -2,6 +2,7 @@
 // Mobile Menu
 // =========================
 
+alert("script.js loaded");
 const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("navMenu");
 
