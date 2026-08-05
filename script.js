@@ -1,10 +1,12 @@
- const menuButton = document.getElementById("menuButton");
+// =========================
+// Mobile Menu
+// =========================
+
+const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("navMenu");
 
 if (menuButton && navMenu) {
-
     menuButton.addEventListener("click", () => {
-
         if (navMenu.style.display === "flex") {
             navMenu.style.display = "none";
         } else {
@@ -18,14 +20,16 @@ if (menuButton && navMenu) {
             navMenu.style.padding = "20px";
             navMenu.style.gap = "20px";
         }
-
     });
+}
 
-// Add to Cart
+// =========================
+// Add To Cart
+// =========================
+
 const addToCartButton = document.getElementById("addToCart");
 
 if (addToCartButton) {
-
     addToCartButton.addEventListener("click", () => {
 
         const product = {
@@ -43,5 +47,4 @@ if (addToCartButton) {
         alert("Added to cart!");
 
     });
-
 }
