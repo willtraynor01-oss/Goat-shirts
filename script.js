@@ -26,7 +26,6 @@ if (menuButton && navMenu) {
 // =========================
 // Add To Cart
 // =========================
-
 const addToCartButton = document.getElementById("addToCart");
 
 if (addToCartButton) {
@@ -40,7 +39,13 @@ if (addToCartButton) {
 
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        cart.push(product);
+        const existingProduct = cart.find(item => item.name === product.name);
+
+        if (existingProduct) {
+            existingProduct.quantity++;
+        } else {
+            cart.push(product);
+        }
 
         localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -48,6 +53,7 @@ if (addToCartButton) {
 
     });
 }
+
 // =========================
 // Display Cart
 // =========================
