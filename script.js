@@ -84,3 +84,14 @@ if (cartItems && cartTotal) {
     cartTotal.textContent = "$" + total.toFixed(2);
 
 }
+function removeItem(index) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    location.reload();
+
+}
