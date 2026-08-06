@@ -31,11 +31,14 @@ const addToCartButton = document.getElementById("addToCart");
 if (addToCartButton) {
     addToCartButton.addEventListener("click", () => {
 
-        const product = {
-            name: "Sample Shirt",
-            price: 24.99,
-            quantity: 1
-        };
+const productSection = document.querySelector(".product-details");
+
+const product = {
+    name: productSection.dataset.name,
+    price: parseFloat(productSection.dataset.price),
+    image: productSection.dataset.image,
+    quantity: 1
+};
 
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
