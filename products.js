@@ -22,13 +22,22 @@ const products = {
         back: "images/quote1-back.png"
     },
 
-    quote2: {
+        quote2: {
         id: "quote2",
         name: "Quote Shirt 2",
         price: 24.99,
         description: "Premium quote t-shirt.",
         front: "images/quote2-front.png",
         back: "images/quote2-back.png"
+    },
+
+    quote3: {
+        id: "quote3",
+        name: "Quote Shirt 3",
+        price: 24.99,
+        description: "Premium quote t-shirt.",
+        front: "images/quote3-front.png",
+        back: "images/quote3-back.png"
     }
 
 };
