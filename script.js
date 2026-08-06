@@ -56,13 +56,18 @@ if (addToCartButton) {
 
 const productSection = document.querySelector(".product-details");
 
+ if (!currentProduct) {
+    alert("Product not found.");
+    return;
+}
+
 const product = {
-    name: productSection.dataset.name,
-    price: parseFloat(productSection.dataset.price),
-    image: productSection.dataset.image,
+    id: currentProduct.id,
+    name: currentProduct.name,
+    price: currentProduct.price,
+    image: currentProduct.front,
     quantity: 1
 };
-
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
         const existingProduct = cart.find(item => item.name === product.name);
