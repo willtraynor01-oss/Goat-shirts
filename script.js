@@ -1,4 +1,27 @@
 // =========================
+// Load Product
+// =========================
+
+const params = new URLSearchParams(window.location.search);
+const productId = params.get("id");
+
+let currentProduct = null;
+
+if (typeof products !== "undefined" && productId && products[productId]) {
+
+    currentProduct = products[productId];
+
+    const productName = document.getElementById("productName");
+    const productPrice = document.getElementById("productPrice");
+    const productDescription = document.getElementById("productDescription");
+    const mainImage = document.getElementById("mainImage");
+
+    if (productName) productName.textContent = currentProduct.name;
+    if (productPrice) productPrice.textContent = "$" + currentProduct.price.toFixed(2);
+    if (productDescription) productDescription.textContent = currentProduct.description;
+    if (mainImage) mainImage.src = currentProduct.front;
+}
+// =========================
 // Mobile Menu
 // =========================
 
