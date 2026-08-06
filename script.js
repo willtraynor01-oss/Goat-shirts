@@ -129,18 +129,15 @@ function removeItem(index) {
 // Cart Counter
 // =========================
 
-const cartLink = document.getElementById("cartLink");
+function updateCartCount() {
+    const cartLink = document.getElementById("cartLink");
+    if (!cartLink) return;
 
-if (cartLink) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    let count = 0;
-
-    cart.forEach(item => {
-        count += item.quantity;
-    });
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
 
     cartLink.textContent = `Cart (${count})`;
-
 }
+
+updateCartCount();
