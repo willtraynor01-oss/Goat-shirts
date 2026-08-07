@@ -439,3 +439,29 @@ body{
     background:#d4af37;
     color:#000;
 }
+.search-container{
+    max-width:500px;
+    margin:0 auto 40px;
+}
+
+.search-container input{
+    width:100%;
+    padding:14px 18px;
+    border:2px solid #d4af37;
+    border-radius:10px;
+    background:#111;
+    color:#fff;
+    font-size:16px;
+    font-family:Montserrat,sans-serif;
+    outline:none;
+    transition:.3s;
+}
+
+.search-container input:focus{
+    border-color:#f4d03f;
+    box-shadow:0 0 10px rgba(212,175,55,.4);
+}
+
+.search-container input::placeholder{
+    color:#bbb;
+}
