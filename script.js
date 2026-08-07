@@ -4,16 +4,7 @@
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
-alert("URL: " + window.location.href);
-alert("Product ID: " + productId);
 
-if (typeof products === "undefined") {
-    alert("Products object is NOT loaded!");
-} else {
-    alert("Quote 1 exists: " + (products.quote1 ? "Yes" : "No"));
-    alert("Quote 2 exists: " + (products.quote2 ? "Yes" : "No"));
-    alert("Quote 3 exists: " + (products.quote3 ? "Yes" : "No"));
-}
 let currentProduct = null;
 
 if (typeof products !== "undefined" && productId && products[productId]) {
