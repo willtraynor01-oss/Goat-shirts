@@ -200,3 +200,70 @@ if (searchInput) {
     });
 
 }
+// =========================
+// Site-Wide Search
+// =========================
+
+const siteSearch = document.getElementById("siteSearch");
+const searchResults = document.getElementById("searchResults");
+const noResults = document.getElementById("noResults");
+
+if (siteSearch && searchResults && noResults && typeof products !== "undefined") {
+
+    function displaySearchResults(searchTerm = "") {
+
+        searchResults.innerHTML = "";
+
+        const search = searchTerm.toLowerCase().trim();
+
+        let foundProducts = 0;
+
+        Object.values(products).forEach(product => {
+
+            const productName = product.name.toLowerCase();
+            const productDescription = product.description.toLowerCase();
+
+            if (
+                search === "" ||
+                productName.includes(search) ||
+                productDescription.includes(search)
+            ) {
+
+                foundProducts++;
+
+                searchResults.innerHTML += `
+                    <article class="product-card">
+
+                        <div class="shirt-image">
+                            <img
+                                src="${product.front}"
+                                alt="${product.name}"
+                            >
+                        </div>
+
+                        <h3>${product.name}</h3>
+
+                        <p>$${product.price.toFixed(2)}</p>
+
+                        <a href="product.html?id=${product.id}">
+                            View Product
+                        </a>
+
+                    </article>
+                `;
+            }
+        });
+
+        if (foundProducts === 0) {
+            noResults.style.display = "block";
+        } else {
+            noResults.style.display = "none";
+        }
+    }
+
+    displaySearchResults();
+
+    siteSearch.addEventListener("input", function () {
+        displaySearchResults(this.value);
+    });
+}
