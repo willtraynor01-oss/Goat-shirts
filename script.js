@@ -171,3 +171,32 @@ function updateCartCount() {
 }
 
 updateCartCount();
+const searchInput = document.getElementById("productSearch");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const search = this.value.toLowerCase();
+
+        const products = document.querySelectorAll(".product-card");
+
+        products.forEach(product => {
+
+            const name = product.dataset.name.toLowerCase();
+
+            if (name.includes(search)) {
+
+                product.style.display = "";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+}
