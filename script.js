@@ -4,7 +4,13 @@
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
+console.log("URL:", window.location.href);
+console.log("Product ID:", productId);
+console.log("Products object:", products);
 
+if (productId) {
+    console.log("Selected product:", products[productId]);
+}
 let currentProduct = null;
 
 if (typeof products !== "undefined" && productId && products[productId]) {
