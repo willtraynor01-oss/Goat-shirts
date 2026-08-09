@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin | GOAT SHIRTS</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     ADMIN HEADER
+========================================= -->
+
+<header class="admin-header">
+
+    <div class="admin-logo">
+
+        GOAT SHIRTS
+
+        <span>ADMIN</span>
+
+    </div>
+
+
+    <button
+        class="menu-button"
+        id="menuButton"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+
+<!-- =========================================
+     ADMIN LAYOUT
+========================================= -->
+
+<div class="admin-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <nav>
+
+            <button
+                class="nav-item active"
+                data-section="dashboard"
+            >
+                Dashboard
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="products"
+            >
+                Products
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="categories"
+            >
+                Categories
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-section="settings"
+            >
+                Store Settings
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="index.html">
+                View Store
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="admin-content">
+
+
+
+        <!-- =================================
+             DASHBOARD
+        ================================== -->
+
+        <section
+            id="dashboard"
+            class="admin-section active"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        GOAT SHIRTS
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Manage your products and store
+                        from one place.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Total Products
+                    </span>
+
+                    <strong id="totalProducts">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Categories
+                    </span>
+
+                    <strong id="totalCategories">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Store Status
+                    </span>
+
+                    <strong class="status">
+                        Active
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="admin-card">
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+
+                <div class="quick-actions">
+
+
+                    <button
+                        class="action-button"
+                        data-section-button="products"
+                    >
+                        + Add Product
+                    </button>
+
+
+                    <button
+                        class="action-button"
+                        data-section-button="categories"
+                    >
+                        + Add Category
+                    </button>
+
+
+                    <a
+                        href="index.html"
+                        class="action-button secondary"
+                    >
+                        View Store
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             PRODUCTS
+        ================================== -->
+
+        <section
+            id="products"
+            class="admin-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        STORE MANAGEMENT
+                    </p>
+
+                    <h1>
+                        Products
+                    </h1>
+
+                    <p>
+                        Add and manage everything
+                        you sell.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    id="addProductButton"
+                >
+                    + Add Product
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUCT CREATOR -->
+
+            <div
+                class="admin-card"
+                id="productCreator"
+            >
+
+                <h2>
+                    Add Product
+                </h2>
+
+
+                <p class="form-description">
+                    Create a new product for your store.
+                </p>
+
+
+
+                <!-- PRODUCT NAME -->
+
+                <div class="form-group">
+
+                    <label for="productName">
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        placeholder="Example: Sunday Drive"
+                    >
+
+                </div>
+
+
+
+                <!-- PRODUCT TYPE -->
+
+                <div class="form-group">
+
+                    <label for="productType">
+                        Product Type
+                    </label>
+
+                    <select id="productType">
+
+                        <option value="Shirt">
+                            Shirt
+                        </option>
+
+                        <option value="Hoodie">
+                            Hoodie
+                        </option>
+
+                        <option value="Sweatshirt">
+                            Sweatshirt
+                        </option>
+
+                        <option value="Hat">
+                            Hat
+                        </option>
+
+                        <option value="Mug">
+                            Mug
+                        </option>
+
+                        <option value="Bag">
+                            Bag
+                        </option>
+
+                        <option value="Poster">
+                            Poster
+                        </option>
+
+                        <option value="Phone Case">
+                            Phone Case
+                        </option>
+
+                        <option value="Socks">
+                            Socks
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- PRICE -->
+
+                <div class="form-group">
+
+                    <label for="productPrice">
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        placeholder="24.99"
+                        step="0.01"
+                        min="0"
+                    >
+
+                </div>
+
+
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="productCategory">
+                        Category
+                    </label>
+
+                    <select id="productCategory">
+
+                        <option value="Quotes">
+                            Quotes
+                        </option>
+
+                        <option value="Popular People">
+                            Popular People
+                        </option>
+
+                        <option value="Bible Verses">
+                            Bible Verses
+                        </option>
+
+                        <option value="Funny Scenic">
+                            Funny Scenic
+                        </option>
+
+                        <option value="America">
+                            America
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="productDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="productDescription"
+                        placeholder="Describe your product..."
+                        rows="5"
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- FRONT IMAGE -->
+
+                <div class="form-group">
+
+                    <label for="productFrontImage">
+                        Front Image
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productFrontImage"
+                        placeholder="images/product-front.jpg"
+                    >
+
+                    <small>
+                        Enter the image file path for now.
+                    </small>
+
+                </div>
+
+
+
+                <!-- BACK IMAGE -->
+
+                <div class="form-group">
+
+                    <label for="productBackImage">
+                        Back Image
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productBackImage"
+                        placeholder="images/product-back.jpg"
+                    >
+
+                    <small>
+                        Optional for products that
+                        don't have a back view.
+                    </small>
+
+                </div>
+
+
+
+                <!-- SIZES -->
+
+                <div class="form-group">
+
+                    <label for="productSizes">
+                        Sizes
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productSizes"
+                        placeholder="S, M, L, XL, 2XL"
+                    >
+
+                    <small>
+                        Separate sizes with commas.
+                    </small>
+
+                </div>
+
+
+
+                <!-- COLORS -->
+
+                <div class="form-group">
+
+                    <label for="productColors">
+                        Colors
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productColors"
+                        placeholder="Black, White, Gold"
+                    >
+
+                    <small>
+                        Separate colors with commas.
+                    </small>
+
+                </div>
+
+
+
+                <!-- SAVE -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="saveProductButton"
+                    >
+                        Save Product
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelProductButton"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PRODUCT LIST -->
+
+            <div
+                class="admin-card"
+                id="productListCard"
+            >
+
+                <h2>
+                    Your Products
+                </h2>
+
+
+                <div id="productList">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            +
+                        </div>
+
+                        <h2>
+                            No Products Yet
+                        </h2>
+
+                        <p>
+                            Add your first product above.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             CATEGORIES
+        ================================== -->
+
+        <section
+            id="categories"
+            class="admin-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        STORE ORGANIZATION
+                    </p>
+
+                    <h1>
+                        Categories
+                    </h1>
+
+                    <p>
+                        Organize your products
+                        into collections.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <div
+                    class="category-list"
+                    id="categoryList"
+                >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             SETTINGS
+        ================================== -->
+
+        <section
+            id="settings"
+            class="admin-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        STORE MANAGEMENT
+                    </p>
+
+                    <h1>
+                        Store Settings
+                    </h1>
+
+                    <p>
+                        Manage basic GOAT SHIRTS
+                        settings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <h2>
+                    Store Information
+                </h2>
+
+
+                <div class="form-group">
+
+                    <label for="storeName">
+                        Store Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="storeName"
+                        value="GOAT SHIRTS"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="storeSlogan">
+                        Store Slogan
+                    </label>
+
+                    <input
+                        type="text"
+                        id="storeSlogan"
+                        value="Stand Out. Wear GOAT."
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
