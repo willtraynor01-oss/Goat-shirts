@@ -5,15 +5,47 @@
 // =========================================
 // DATA
 // =========================================
-let products = [];
-let categories = [
-    "Quotes",
-    "Popular People",
-    "Bible Verses",
-    "Funny Scenic",
-    "America"
+ let products = [];
+
+let productTypes = [
+    "Shirt",
+    "Hoodie",
+    "Sweatshirt",
+    "Hat",
+    "Mug",
+    "Bag",
+    "Poster",
+    "Phone Case",
+    "Socks",
+    "Other"
 ];
+
+let categories = [
+    {
+        name: "Quotes",
+        productType: "Shirt"
+    },
+    {
+        name: "Popular People",
+        productType: "Shirt"
+    },
+    {
+        name: "Bible Verses",
+        productType: "Shirt"
+    },
+    {
+        name: "Funny Scenic",
+        productType: "Shirt"
+    },
+    {
+        name: "America",
+        productType: "Shirt"
+    }
+];
+
 let editingProductId = null;
+let editingFrontImage = "";
+let editingBackImage = "";let editingProductId = null;
 let editingFrontImage = "";
 let editingBackImage = "";
 // =========================================
