@@ -26,6 +26,34 @@ function getStoreProducts() {
     }
 }
 // =========================================
+// LOAD CATEGORIES FROM ADMIN
+// =========================================
+function getStoreCategories() {
+    const savedCategories =
+        localStorage.getItem("goatCategories");
+
+    if (!savedCategories) {
+        return [];
+    }
+
+    try {
+        const categories =
+            JSON.parse(savedCategories);
+
+        if (!Array.isArray(categories)) {
+            return [];
+        }
+
+        return categories;
+    } catch (error) {
+        console.error(
+            "Could not load GOAT SHIRTS categories:",
+            error
+        );
+        return [];
+    }
+}
+// =========================================
 // CURRENT PRODUCT
 // =========================================
 const params =
