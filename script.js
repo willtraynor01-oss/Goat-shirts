@@ -594,12 +594,12 @@ if (currentPage === "america") {
         0;
     products.forEach(
         product => {
-            if (
-                product.category !==
-                categoryName
-            ) {
-                return;
-            }
+          if (
+    (product.category || "").toLowerCase() !==
+    (categoryName || "").toLowerCase()
+) {
+    return;
+}
             foundProducts++;
             categoryProducts.innerHTML += `
                 <article
