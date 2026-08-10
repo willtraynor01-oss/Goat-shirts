@@ -543,18 +543,51 @@ if (
                 ""
             )
             .toLowerCase();
-    const categoryMap = {
-        quotes: "Quotes",
-        popular: "Popular People",
-        bible: "Bible Verses",
-        funny: "Funny",
-        scenic: "Scenic",
-        america: "America"
-    };
-    const categoryName =
-        categoryMap[
+   const categories =
+    getStoreCategories();
+
+let categoryName = "";
+
+categories.forEach(
+    category => {
+        const categorySlug =
+            category
+                .toLowerCase()
+                .replace(
+                    /[^a-z0-9]+/g,
+                    "-"
+                )
+                .replace(
+                    /^-|-$/g,
+                    ""
+                );
+
+        if (
+            categorySlug ===
             currentPage
-        ];
+        ) {
+            categoryName =
+                category;
+        }
+    }
+);
+
+// Keep the existing page names working
+if (currentPage === "popular") {
+    categoryName = "Popular People";
+}
+
+if (currentPage === "bible") {
+    categoryName = "Bible Verses";
+}
+
+if (currentPage === "quotes") {
+    categoryName = "Quotes";
+}
+
+if (currentPage === "america") {
+    categoryName = "America";
+}
     categoryProducts.innerHTML =
         "";
     let foundProducts =
