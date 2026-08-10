@@ -54,8 +54,10 @@ let editingBackImage = "";
 function loadData() {
     const savedProducts =
         localStorage.getItem("goatProducts");
+
     const savedCategories =
         localStorage.getItem("goatCategories");
+
     if (savedProducts) {
         try {
             products =
@@ -64,17 +66,55 @@ function loadData() {
             products = [];
         }
     }
+
     if (savedCategories) {
         try {
-            categories =
+            const loadedCategories =
                 JSON.parse(savedCategories);
+
+            categories =
+                loadedCategories.map(category => {
+
+                    // Convert old category strings
+                    // into the new category structure
+                    if (typeof category === "string") {
+                        return {
+                            name: category,
+                            productType: "Shirt"
+                        };
+                    }
+
+                    // Keep new category objects
+                    return {
+                        name: category.name,
+                        productType:
+                            category.productType ||
+                            "Shirt"
+                    };
+                });
+
         } catch {
             categories = [
-                "Quotes",
-                "Popular People",
-                "Bible Verses",
-                "Funny Scenic",
-                "America"
+                {
+                    name: "Quotes",
+                    productType: "Shirt"
+                },
+                {
+                    name: "Popular People",
+                    productType: "Shirt"
+                },
+                {
+                    name: "Bible Verses",
+                    productType: "Shirt"
+                },
+                {
+                    name: "Funny Scenic",
+                    productType: "Shirt"
+                },
+                {
+                    name: "America",
+                    productType: "Shirt"
+                }
             ];
         }
     }
