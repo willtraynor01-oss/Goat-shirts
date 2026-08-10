@@ -485,16 +485,20 @@
                         Back Image
                     </label>
 
-                    <input
-                        type="text"
-                        id="productBackImage"
-                        placeholder="images/product-back.jpg"
-                    >
+                  <input
+    type="file"
+    id="productBackImage"
+    accept="image/*"
+>
 
-                    <small>
-                        Optional for products that
-                        don't have a back view.
-                    </small>
+<small>
+    Optional. Choose a back image from your device.
+</small>
+
+<div
+    id="backImagePreview"
+    class="image-preview"
+></div>
 
                 </div>
 
