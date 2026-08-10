@@ -458,15 +458,20 @@
                         Front Image
                     </label>
 
-                    <input
-                        type="text"
-                        id="productFrontImage"
-                        placeholder="images/product-front.jpg"
-                    >
+                <input
+    type="file"
+    id="productFrontImage"
+    accept="image/*"
+>
 
-                    <small>
-                        Enter the image file path for now.
-                    </small>
+<small>
+    Choose a front image from your device.
+</small>
+
+<div
+    id="frontImagePreview"
+    class="image-preview"
+></div>   
 
                 </div>
 
