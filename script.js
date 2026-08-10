@@ -490,3 +490,101 @@ if (
         }
     );
 }
+// =========================================
+// DYNAMIC CATEGORY PRODUCTS
+// =========================================
+const categoryProducts =
+    document.getElementById(
+        "categoryProducts"
+    );
+const categoryNoProducts =
+    document.getElementById(
+        "categoryNoProducts"
+    );
+if (
+    categoryProducts
+) {
+    const products =
+        getStoreProducts();
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .replace(
+                ".html",
+                ""
+            )
+            .toLowerCase();
+    const categoryMap = {
+        quotes: "Quotes",
+        popular: "Popular People",
+        bible: "Bible Verses",
+        funny: "Funny",
+        scenic: "Scenic",
+        america: "America"
+    };
+    const categoryName =
+        categoryMap[
+            currentPage
+        ];
+    categoryProducts.innerHTML =
+        "";
+    let foundProducts =
+        0;
+    products.forEach(
+        product => {
+            if (
+                product.category !==
+                categoryName
+            ) {
+                return;
+            }
+            foundProducts++;
+            categoryProducts.innerHTML += `
+                <article
+                    class="product-card"
+                    data-name="${product.name}"
+                >
+                    <div class="shirt-image">
+                        <img
+                            src="${
+                                product.frontImage || ""
+                            }"
+                            alt="${product.name}"
+                        >
+                    </div>
+                    <h3>
+                        ${product.name}
+                    </h3>
+                    <p>
+                        $${Number(
+                            product.price
+                        ).toFixed(2)}
+                    </p>
+                    <a
+                        href="product.html?id=${product.id}"
+                    >
+                        View Product
+                    </a>
+                </article>
+            `;
+        }
+    );
+    if (
+        foundProducts === 0
+    ) {
+        if (
+            categoryNoProducts
+        ) {
+            categoryNoProducts.style.display =
+                "block";
+        }
+    } else {
+        if (
+            categoryNoProducts
+        ) {
+            categoryNoProducts.style.display =
+                "none";
+        }
+    }
+}
