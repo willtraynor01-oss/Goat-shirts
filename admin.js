@@ -314,14 +314,20 @@ const addProductButton =
 // =========================================
 // CATEGORY FORM ELEMENTS
 // =========================================
-const categoryName =
+ const categoryName =
     document.getElementById(
         "categoryName"
     );
+
+const categoryProductType =
+    document.getElementById(
+        "categoryProductType"
+    );
+
 const addCategoryButton =
     document.getElementById(
         "addCategoryButton"
-    );
+    );   
 // =========================================
 // IMAGE FILE READER
 // =========================================
