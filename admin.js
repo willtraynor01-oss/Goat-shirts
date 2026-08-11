@@ -492,29 +492,38 @@ function updateCategoryDropdown() {
             option
         );
 
-        return;
-    }
+    } else {
 
-    matchingCategories.forEach(
-        category => {
+        matchingCategories.forEach(
+            category => {
 
-            const option =
-                document.createElement(
-                    "option"
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    category.name;
+
+                option.textContent =
+                    category.name;
+
+                productCategory.appendChild(
+                    option
                 );
 
-            option.value =
-                category.name;
+            }
+        );
+    }
 
-            option.textContent =
-                category.name;
+    // Update categories automatically
+    // when the Product Type changes
+    if (productType) {
 
-            productCategory.appendChild(
-                option
-            );
+        productType.onchange =
+            updateCategoryDropdown;
 
-        }
-    );
+    }
 }
 // =========================================
 // CLEAR PRODUCT FORM
