@@ -1013,9 +1013,6 @@ if (addCategoryButton) {
 // =========================================
 // RENDER CATEGORIES
 // =========================================
-// =========================================
-// RENDER CATEGORIES
-// =========================================
 function renderCategories() {
 
     const categoryList =
