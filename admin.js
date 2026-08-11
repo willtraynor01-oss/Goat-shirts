@@ -454,24 +454,67 @@ if (productBackImage) {
 // UPDATE CATEGORY DROPDOWN
 // =========================================
 function updateCategoryDropdown() {
+
     if (!productCategory) {
         return;
     }
-    productCategory.innerHTML =
-        "";
-    categories.forEach(category => {
+
+    const selectedType =
+        productType.value || "Shirt";
+
+    productCategory.innerHTML = "";
+
+    const matchingCategories =
+        categories.filter(
+            category =>
+                category.productType ===
+                selectedType
+        );
+
+    if (
+        matchingCategories.length ===
+        0
+    ) {
+
         const option =
             document.createElement(
                 "option"
             );
-        option.value =
-            category;
+
+        option.value = "";
+
         option.textContent =
-            category;
+            `No categories for ${selectedType}`;
+
+        option.disabled = true;
+
         productCategory.appendChild(
             option
         );
-    });
+
+        return;
+    }
+
+    matchingCategories.forEach(
+        category => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                category.name;
+
+            option.textContent =
+                category.name;
+
+            productCategory.appendChild(
+                option
+            );
+
+        }
+    );
 }
 // =========================================
 // CLEAR PRODUCT FORM
