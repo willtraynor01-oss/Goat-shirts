@@ -1013,20 +1013,28 @@ if (addCategoryButton) {
 // =========================================
 // RENDER CATEGORIES
 // =========================================
+// =========================================
+// RENDER CATEGORIES
+// =========================================
 function renderCategories() {
+
     const categoryList =
         document.getElementById(
             "categoryList"
         );
+
     if (!categoryList) {
         return;
     }
+
     categoryList.innerHTML =
         "";
+
     if (
         categories.length ===
         0
     ) {
+
         categoryList.innerHTML = `
             <div class="empty-state">
                 <h2>
@@ -1037,47 +1045,65 @@ function renderCategories() {
                 </p>
             </div>
         `;
+
         return;
     }
+
     categories.forEach(
         (
             category,
             index
         ) => {
+
             const item =
                 document.createElement(
                     "div"
                 );
+
             item.className =
                 "category-item";
+
             item.innerHTML = `
                 <div>
                     <strong>
                         ${escapeHTML(
-                            category
+                            category.name
                         )}
                     </strong>
+
+                    <span>
+                        Product Type:
+                        ${escapeHTML(
+                            category.productType
+                        )}
+                    </span>
                 </div>
+
                 <div class="product-admin-actions">
+
                     <button
                         class="edit-button"
                         data-edit-category="${index}"
                     >
                         Edit
                     </button>
+
                     <button
                         class="delete-button"
                         data-delete-category="${index}"
                     >
                         Delete
                     </button>
+
                 </div>
             `;
+
             categoryList.appendChild(
                 item
             );
         }
     );
+
     // EDIT CATEGORY
     document
         .querySelectorAll(
@@ -1085,18 +1111,24 @@ function renderCategories() {
         )
         .forEach(
             button => {
+
                 button.addEventListener(
                     "click",
                     () => {
+
                         editCategory(
                             Number(
-                                button.dataset.editCategory
+                                button.dataset
+                                    .editCategory
                             )
                         );
+
                     }
                 );
+
             }
         );
+
     // DELETE CATEGORY
     document
         .querySelectorAll(
@@ -1104,16 +1136,21 @@ function renderCategories() {
         )
         .forEach(
             button => {
+
                 button.addEventListener(
                     "click",
                     () => {
+
                         deleteCategory(
                             Number(
-                                button.dataset.deleteCategory
+                                button.dataset
+                                    .deleteCategory
                             )
                         );
+
                     }
                 );
+
             }
         );
 }
