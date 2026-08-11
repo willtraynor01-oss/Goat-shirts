@@ -1252,40 +1252,53 @@ function editCategory(
 function deleteCategory(
     index
 ) {
+
     if (
         index < 0 ||
         index >= categories.length
     ) {
         return;
     }
+
     const category =
         categories[index];
+
+    const categoryName =
+        category.name;
+
     const productsUsingCategory =
         products.filter(
             product =>
                 product.category ===
-                category
+                categoryName
         );
+
     if (
         productsUsingCategory.length >
         0
     ) {
+
         alert(
-            `You cannot delete "${category}" because ${productsUsingCategory.length} product(s) are using it. Edit those products first.`
+            `You cannot delete "${categoryName}" because ${productsUsingCategory.length} product(s) are using it. Edit those products first.`
         );
+
         return;
     }
+
     const confirmed =
         confirm(
-            `Delete the "${category}" category?`
+            `Delete the "${categoryName}" category?`
         );
+
     if (!confirmed) {
         return;
     }
+
     categories.splice(
         index,
         1
     );
+
     saveData();
     updateDashboard();
     renderCategories();
