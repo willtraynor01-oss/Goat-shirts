@@ -45,8 +45,6 @@ let categories = [
 
 let editingProductId = null;
 let editingFrontImage = "";
-let editingBackImage = "";let editingProductId = null;
-let editingFrontImage = "";
 let editingBackImage = "";
 // =========================================
 // LOAD DATA
