@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Categories | GOAT SHIRTS</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Shop | GOAT SHIRTS</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
 </head>
 
 <body>
@@ -19,68 +40,57 @@
 
     <div class="container">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
             GOAT SHIRTS
         </a>
 
         <nav class="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="categories.html">Shop</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="categories.html">
+                Shop
+            </a>
+
         </nav>
 
     </div>
 
 </header>
 
+
 <section class="hero">
 
     <div class="hero-inner">
 
-        <h1>Shop by Category</h1>
+        <h1>
+            Shop
+        </h1>
 
         <p>
-            Choose a collection and discover designs that fit your style.
+            Choose a product and discover designs made for you.
         </p>
 
     </div>
 
 </section>
 
+
 <section class="categories-preview">
 
     <div class="container">
 
-        <div class="category-grid">
+        <div
+            class="category-grid"
+            id="productTypeGrid"
+        >
 
-            <a class="category-card" href="quotes.html">
-                💬
-                <h3>Quotes</h3>
-            </a>
-
-            <a class="category-card" href="popular.html">
-                ⭐
-                <h3>Popular People</h3>
-            </a>
-
-            <a class="category-card" href="bible.html">
-                ✝️
-                <h3>Bible Verses</h3>
-            </a>
-
-            <a class="category-card" href="funny.html">
-                😂
-                <h3>Funny</h3>
-            </a>
-
-            <a class="category-card" href="scenic.html">
-                🏔️
-                <h3>Scenic</h3>
-            </a>
-
-            <a class="category-card" href="america.html">
-                🇺🇸
-                <h3>America</h3>
-            </a>
+            <!-- Product types will be loaded here -->
 
         </div>
 
@@ -88,17 +98,176 @@
 
 </section>
 
+
 <footer class="site-footer">
 
     <div class="container">
 
-        <p>© 2026 GOAT SHIRTS</p>
+        <p>
+            © 2026 GOAT SHIRTS
+        </p>
 
-        <p>Stand Out. Wear GOAT.</p>
+        <p>
+            Stand Out. Wear GOAT.
+        </p>
 
     </div>
 
 </footer>
+
+
+<script>
+
+    // =========================================
+    // LOAD PRODUCT TYPES
+    // =========================================
+
+    const productTypeGrid =
+        document.getElementById(
+            "productTypeGrid"
+        );
+
+
+    const defaultProductTypes = [
+        "Shirt",
+        "Hoodie",
+        "Sweatshirt",
+        "Hat",
+        "Mug",
+        "Bag",
+        "Poster",
+        "Phone Case",
+        "Socks",
+        "Other"
+    ];
+
+
+    let productTypes =
+        defaultProductTypes;
+
+
+    const savedProductTypes =
+        localStorage.getItem(
+            "goatProductTypes"
+        );
+
+
+    if (savedProductTypes) {
+
+        try {
+
+            const loadedTypes =
+                JSON.parse(
+                    savedProductTypes
+                );
+
+            if (
+                Array.isArray(
+                    loadedTypes
+                ) &&
+                loadedTypes.length > 0
+            ) {
+
+                productTypes =
+                    loadedTypes;
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Could not load product types:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =========================================
+    // PRODUCT TYPE ICONS
+    // =========================================
+
+    const productTypeIcons = {
+
+        "Shirt": "👕",
+
+        "Hoodie": "🧥",
+
+        "Sweatshirt": "👚",
+
+        "Hat": "🧢",
+
+        "Mug": "☕",
+
+        "Bag": "👜",
+
+        "Poster": "🖼️",
+
+        "Phone Case": "📱",
+
+        "Socks": "🧦",
+
+        "Other": "🛍️"
+
+    };
+
+
+    // =========================================
+    // DISPLAY PRODUCT TYPES
+    // =========================================
+
+    productTypeGrid.innerHTML = "";
+
+
+    productTypes.forEach(
+        productType => {
+
+            const card =
+                document.createElement(
+                    "a"
+                );
+
+            card.className =
+                "category-card";
+
+
+            const icon =
+                productTypeIcons[
+                    productType
+                ] || "🛍️";
+
+
+            card.href =
+                "categories.html?type=" +
+                encodeURIComponent(
+                    productType
+                );
+
+
+            card.innerHTML = `
+
+                <div>
+                    ${icon}
+                </div>
+
+                <h3>
+                    ${productType}
+                </h3>
+
+            `;
+
+
+            productTypeGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+</script>
+
 
 </body>
 </html>
