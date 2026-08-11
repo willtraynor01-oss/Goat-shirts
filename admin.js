@@ -948,8 +948,13 @@ function deleteProduct(
 // ADD CATEGORY
 // =========================================
 function addCategory() {
+
     const name =
         categoryName.value.trim();
+
+    const productType =
+        categoryProductType.value;
+
     if (!name) {
         alert(
             "Please enter a category name."
@@ -957,13 +962,23 @@ function addCategory() {
         categoryName.focus();
         return;
     }
+
+    if (!productType) {
+        alert(
+            "Please select a product type."
+        );
+        categoryProductType.focus();
+        return;
+    }
+
     const exists =
         categories.some(
             category =>
-                category.toLowerCase()
+                category.name.toLowerCase()
                 ===
                 name.toLowerCase()
         );
+
     if (exists) {
         alert(
             "That category already exists."
@@ -971,19 +986,24 @@ function addCategory() {
         categoryName.focus();
         return;
     }
-    categories.push(
-        name
-    );
+
+    categories.push({
+        name: name,
+        productType: productType
+    });
+
     saveData();
     updateDashboard();
     renderCategories();
     updateCategoryDropdown();
-    categoryName.value =
-        "";
+
+    categoryName.value = "";
+
     alert(
         "Category added successfully!"
     );
 }
+
 if (addCategoryButton) {
     addCategoryButton.addEventListener(
         "click",
