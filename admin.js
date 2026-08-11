@@ -1157,33 +1157,43 @@ function renderCategories() {
 function editCategory(
     index
 ) {
+
     if (
         index < 0 ||
         index >= categories.length
     ) {
         return;
     }
-    const oldName =
+
+    const oldCategory =
         categories[index];
+
+    const oldName =
+        oldCategory.name;
+
     const newName =
         prompt(
             "Enter the new category name:",
             oldName
         );
+
     if (
         newName ===
         null
     ) {
         return;
     }
+
     const cleanedName =
         newName.trim();
+
     if (!cleanedName) {
         alert(
             "Category name cannot be empty."
         );
         return;
     }
+
     const duplicate =
         categories.some(
             (
@@ -1192,32 +1202,44 @@ function editCategory(
             ) =>
                 categoryIndex !==
                 index &&
-                category
+                category.name
                     .toLowerCase()
                 ===
                 cleanedName
                     .toLowerCase()
         );
+
     if (duplicate) {
         alert(
             "That category already exists."
         );
         return;
     }
-    categories[index] =
-        cleanedName;
+
+    categories[index] = {
+        name:
+            cleanedName,
+        productType:
+            oldCategory.productType
+    };
+
     // Update products using old category
     products.forEach(
         product => {
+
             if (
                 product.category ===
                 oldName
             ) {
+
                 product.category =
                     cleanedName;
+
             }
+
         }
     );
+
     saveData();
     updateDashboard();
     renderCategories();
